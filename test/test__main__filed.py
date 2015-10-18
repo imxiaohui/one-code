@@ -20,6 +20,7 @@ def p():
 
 
 
-
+setattr(__main__ , 'x' , 0)
 
 getattr(__main__ , 'p')()
+print x
