@@ -1,7 +1,2 @@
-*/.ropeproject/*
-*/.ropeproject
-*.*
-*
-!*go
-!*py
-!*md
+*/.git/../*
+*.swp

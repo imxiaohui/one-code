@@ -50,6 +50,17 @@ class LoadIndex(object):
     def find(self ,key):
         seek_info = bisect.bisect_left(self.__index , key)
         if seek_info.key != key:
-            
+            self.            
         
-    
+class FileDb(object):
+
+
+
+    def __init__(self , db_path ):
+        self._db_path = db_path
+        file2.mkdir_p(self.db_path)
+        self.file_db = 
+
+
+    def save(self , key , value):
+        
