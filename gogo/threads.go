@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"runtime"
 	"sync"
 	"time"
 )
@@ -12,9 +11,9 @@ var counter int = 0
 func Count(lock *sync.Mutex) {
 	lock.Lock()
 	counter++
-	time.Sleep(10000)
+	fmt.Printf("thread runing!\n")
+	time.Sleep(2 * time.Second)
 	lock.Unlock()
-	runtime.Gosched()
 }
 
 func main() {
@@ -22,18 +21,18 @@ func main() {
 	for i := 0; i <= 10; i++ {
 		go Count(lock)
 	}
+	fmt.Printf("thread starting!\n")
 	go func() {
 		for {
 			lock.Lock()
 			tmp := counter
 			fmt.Println(tmp)
-			time.Sleep(1000)
+			time.Sleep(1 * time.Second)
 			lock.Unlock()
 			if tmp >= 10 {
 				break
 			}
-			runtime.Gosched()
 		}
 	}()
-	time.Sleep(1000000)
+	time.Sleep(100 * time.Second)
 }
