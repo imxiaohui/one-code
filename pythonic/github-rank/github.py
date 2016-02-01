@@ -4,6 +4,7 @@ import requests
 import json
 
 requests.packages.urllib3.disable_warnings()
+
 class _ApiError(Exception):
     
     def __init__(self , msg ):
@@ -57,9 +58,4 @@ class Github(RequestObject):
 
     def __init__(self , **kw):
         super(Github ,self ).__init__("https://api.github.com" , "get")
-
-if __name__ == "__main__":
-    r = Github()
-    print r.users.intohole.followers.get()
-    print r.users.intohole.following()
 
