@@ -14,7 +14,7 @@ func init() {
 }
 
 func rand_seq(n int) string {
-	seq = make([]rune, n)
+	seq := make([]rune, n)
 	for i := 0; i < n; i++ {
 		seq[i] = RAND_SEQ[rand.Intn(RAND_LEN)]
 	}
